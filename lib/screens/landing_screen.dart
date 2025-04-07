@@ -30,23 +30,21 @@ class _LandingScreenState extends State<LandingScreen> {
                       isExpanded = !isExpanded ;
                     });
                   },
-                  child: Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 8.0,vertical: 12),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text("Your Details", style: headingStyle(fontWeight: FontWeight.w600,color: Colors.black)),
-                              Icon(isExpanded?Icons.keyboard_arrow_up:Icons.keyboard_arrow_down)
-                            ],
-                          ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 8.0,vertical: 12),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text("Your Details", style: headingStyle(fontWeight: FontWeight.w600,color: Colors.black)),
+                            Icon(isExpanded?Icons.keyboard_arrow_up:Icons.keyboard_arrow_down)
+                          ],
                         ),
-                        isExpanded?Column(children: _buildNestedList(context, state.persons, []),):const SizedBox(height: 0,)
-                      ],
-                    ),
+                      ),
+                      isExpanded?Column(children: _buildNestedList(context, state.persons, []),):const SizedBox(height: 0,)
+                    ],
                   ),
                 ),
               );
