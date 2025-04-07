@@ -7,9 +7,15 @@ import '../model/PersonModel.dart';
 import '../utils.dart';
 import 'update_screen.dart';
 
-class LandingScreen extends StatelessWidget {
+class LandingScreen extends StatefulWidget {
   const LandingScreen({super.key});
 
+  @override
+  State<LandingScreen> createState() => _LandingScreenState();
+}
+
+class _LandingScreenState extends State<LandingScreen> {
+  bool isExpanded = true ;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -17,14 +23,33 @@ class LandingScreen extends StatelessWidget {
         body: BlocBuilder<LandingScreenBloc, LandingScreenState>(
           builder: (context, state) {
             if (state is LandingScreenLoaded) {
-              return ExpansionTile(
-                initiallyExpanded: true,
-                title: Text("Your Details", style: headingStyle(fontWeight: FontWeight.w600)),
-                children: _buildNestedList(context, state.persons, []),
+              return SingleChildScrollView(
+                child: InkWell(
+                  onTap: (){
+                    setState(() {
+                      isExpanded = !isExpanded ;
+                    });
+                  },
+                  child: Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 8.0,vertical: 12),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text("Your Details", style: headingStyle(fontWeight: FontWeight.w600,color: Colors.black)),
+                              Icon(isExpanded?Icons.keyboard_arrow_up:Icons.keyboard_arrow_down)
+                            ],
+                          ),
+                        ),
+                        isExpanded?Column(children: _buildNestedList(context, state.persons, []),):const SizedBox(height: 0,)
+                      ],
+                    ),
+                  ),
+                ),
               );
-              //   ListView(
-              //   children: _buildNestedList(context, state.persons, []),
-              // );
             }
             return const Center(child: CircularProgressIndicator());
           },

@@ -13,12 +13,33 @@ class LandingScreenBloc extends Bloc<PersonEvent, LandingScreenState> {
 
   void _onLoad(LoadPersonsEvent event, Emitter<LandingScreenState> emit) {
     List<Person> mockData = [
-      Person(name: "Richard E. Meyer", age: 28),
-      Person(name: "Stephanie S. Young", age: 28, children: [
-        Person(name: "Richard E. Meyer", age: 28),
-        Person(name: "Richard E. Meyer", age: 28, children: [
-          Person(name: "Richard E. Meyer", age: 28),
-          Person(name: "Richard E. Meyer", age: 28),
+      Person(name: "Sanraj", age: 28, children: [
+        Person(name: "Ravi Ghosh", age: 9,children: [
+          Person(name: "Sachin Tendulkar", age: 45),
+          Person(name: "Jhonny Deep", age: 68),
+        ]),
+        Person(name: "Priya Roy", age: 20, children: [
+          Person(name: "David Austin", age: 15, children: [
+            Person(name: "Ravi Ghosh", age: 9,children: [
+              Person(name: "Sachin Tendulkar", age: 45),
+              Person(name: "Jhonny Deep", age: 68),
+            ]),
+            Person(name: "Priya Roy", age: 20, children: [
+              Person(name: "David Austin", age: 15),
+              Person(name: "M.S. Dhoni", age: 38),
+            ]),
+          ]),
+          Person(name: "M.S. Dhoni", age: 38),
+        ]),
+      ]),
+      Person(name: "Rohan Kumar", age: 25, children: [
+        Person(name: "Ravi Ghosh", age: 9,children: [
+          Person(name: "Sachin Tendulkar", age: 45),
+          Person(name: "Jhonny Deep", age: 68),
+        ]),
+        Person(name: "Priya Roy", age: 20, children: [
+          Person(name: "David Austin", age: 15),
+          Person(name: "M.S. Dhoni", age: 38),
         ]),
       ]),
     ];

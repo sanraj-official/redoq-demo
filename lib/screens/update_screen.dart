@@ -47,7 +47,7 @@ class _UpdateScreenState extends State<UpdateScreen> {
                     provideVSpace(),
                     TextFormField(
                       controller: nameController,
-                      decoration:  InputDecoration(border: formBorder()),
+                      decoration:  InputDecoration(border: formBorder(),hintText: "Enter your name"),
                       validator: (value){
                         if(value == null || value.isEmpty){
                           return "Please enter name";
@@ -60,7 +60,7 @@ class _UpdateScreenState extends State<UpdateScreen> {
                     provideVSpace(),
                     TextFormField(
                       controller: ageController,
-                      decoration: InputDecoration(border: formBorder()),
+                      decoration: InputDecoration(border: formBorder(),hintText: "Enter your age",),
                       keyboardType: TextInputType.number,
                       validator: (value){
                         if(value == null || value.isEmpty){

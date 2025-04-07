@@ -11,6 +11,6 @@ Widget provideVSpace({double height = 8.0}) {
   return SizedBox(height: height);
 }
 
-TextStyle headingStyle({double fontSize = 18, FontWeight fontWeight = FontWeight.w400,Color color = Colors.black}) {
+TextStyle headingStyle({double fontSize = 18, FontWeight fontWeight = FontWeight.w500,Color color = Colors.black87}) {
   return  TextStyle(fontSize: fontSize, fontWeight: fontWeight,color: color);
 }
